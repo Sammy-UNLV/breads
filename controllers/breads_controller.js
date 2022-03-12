@@ -13,6 +13,10 @@ breads.get('/', (req, res) => {
 })
 
 module.exports = breads
+// NEW
+breads.get('/new', (req, res) => {
+  res.render('new')
+}) 
 
 // SHOW
 breads.get('/:arrayIndex', (req, res) => {
@@ -21,6 +25,18 @@ breads.get('/:arrayIndex', (req, res) => {
       bread: Bread[req.params.arrayIndex]
     })
   } else {
-    res.send('404')
+    res.render('page404')
   }
   })
+
+// CREATE
+breads.post('/', (req, res) => {
+  console.log(req.body)
+  if(req.body.hasGluten === 'on') {
+    req.body.hasGluten === 'true'
+  } else {
+    req.body.hasGlutten === 'false'
+  }
+  Bread.push(req.body)
+  res.redirect('/breads')
+})
