@@ -7,7 +7,7 @@ function page404 () {
         <h2>The Page You Tried To Visit Is Nowhere To Be Found.</h2>
         <h2>You Are Lost</h2>
         
-        <a href="./">Click Here To Go Home</a>
+        <a href="/">Click Here To Go Home</a>
       </Default>
     )
 }
