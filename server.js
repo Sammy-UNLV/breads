@@ -3,15 +3,18 @@ const express = require('express')
 
 // CONFIGURATION
 require('dotenv').config()
+const methodOverride = require('method-override')
 const PORT = process.env.PORT
 const app = express()
 
 // MIDDLEWARE (must be added above routes)
+
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
 app.engine('jsx', require('express-react-views').createEngine())
+app.use(methodOverride('_method'))
 
 // ROUTES
 app.get('/', (req, res) => {

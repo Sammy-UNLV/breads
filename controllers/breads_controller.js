@@ -23,7 +23,8 @@ breads.get('/new', (req, res) => {
 breads.get('/:arrayIndex', (req, res) => {
   if (Bread[req.params.arrayIndex]) {
     res.render('Show',  {
-      bread: Bread[req.params.arrayIndex]
+      bread: Bread[req.params.arrayIndex],
+      index: req.params.arrayIndex,
     })
   } else {
     res.render('page404')
@@ -42,4 +43,11 @@ breads.post('/', (req, res) => {
   }
   Bread.push(req.body)
   res.redirect('/breads')
+})
+
+// DELETE
+// DELETE
+breads.delete('/:indexArray', (req, res) => {
+  Bread.splice(req.params.indexArray, 1)
+  res.status(303).redirect('/breads')
 })
