@@ -14,6 +14,8 @@ function New () {
           />
           <label htmlFor="image">Image</label>
           <input
+            pattern="https?://.+" 
+            title="Include http://"
             type="text"
             name="image"
             id="image"/>
